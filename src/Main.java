@@ -158,7 +158,25 @@ public class Main {
                     }
                 }
                 else if (select==3) {
+                    Scanner scanner2 = new Scanner(System.in);
                     System.out.println("Delete");
+                    System.out.println("Change index for delete");
+                    for (int a = 0; a<list.size(); a++){
+                        System.out.println(a+1 + ") " + list.get(a).inFo());
+                    }
+                    int numer = scanner2.nextInt();
+                    int index = numer;
+                    index--;
+                    list.remove(index);
+                    for (Person person:list){
+                        System.out.println(person.inFo());
+                    }
+                    FileWriter fileWriter = new FileWriter(file);
+                    for (Person p:list){
+                        fileWriter.write(p.toString() + "\n");
+                    }
+                    fileWriter.flush();
+                    fileWriter.close();
                 }
                 else {
                     System.out.println("Select not found");
